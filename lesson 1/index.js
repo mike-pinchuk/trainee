@@ -1,19 +1,19 @@
 const numbers = [1, 0, -4];
+let [a, b, c] = numbers;
 
-    function quadraticEquation(args) {
-        let descreminant = args[1] * args[1] - 4 * args[0] * args[2];
-       
-        if (descreminant < 0) {
-            return `Descreminant is ${descreminant}, no quadratic equation`;
-        } else if (descreminant == 0) {
-            let x = `Descreminant is ${descreminant}, x: ${args[1] / 2 * args[0]}`;
-            return x;
-        } else if (descreminant > 0) {
-            let x1 = `Descreminant is ${descreminant}, x1: ${(args[1] - Math.sqrt(descreminant)) / 2 * args[0]} and x2: ${(args[1] + Math.sqrt(descreminant)) / 2 * args[0]}`
-            // let x2 = (-text2.value + Math.sqrt(func)) / 2 * text1.value;
-            return x1;
-        }
-    };
-    console.log(quadraticEquation(numbers));
-    
+let quadraticEquation = (a, b, c) => {
+    let descreminant = b * b - 4 * a * c;
+
+    if (descreminant < 0) {
+        return `Descreminant is ${descreminant}, no quadratic equation`;
+    } else if (descreminant == 0) {
+        let x = `Descreminant is ${descreminant}, x: ${b / 2 * a}`;
+        return x;
+    } else if (descreminant > 0) {
+        let x1 = `Descreminant is ${descreminant}, x1: ${(b - Math.sqrt(descreminant)) / 2 * a} and x2: ${(b + Math.sqrt(descreminant)) / 2 * a}`
+        return x1;
+    }
+};
+console.log(quadraticEquation(a, b, c));
+
 
