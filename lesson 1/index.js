@@ -1,7 +1,7 @@
 const numbers = [1, 0, -4];
-let [a, b, c] = numbers;
 
-let quadraticEquation = (a, b, c) => {
+let quadraticEquation = (arr) => {
+    let [a, b, c] = arr;
     let descreminant = b * b - 4 * a * c;
 
     if (descreminant < 0) {
@@ -14,6 +14,6 @@ let quadraticEquation = (a, b, c) => {
         return x1;
     }
 };
-console.log(quadraticEquation(a, b, c));
+console.log(quadraticEquation(numbers));
 
 
