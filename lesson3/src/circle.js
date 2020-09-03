@@ -14,7 +14,7 @@ class Circle extends Shape {
         canvas.appendChild(elem);
         const ctx = elem.getContext("2d");
         ctx.beginPath();
-        ctx.arc(100, 100, 100, 0, Math.PI * 2, false);
+        ctx.arc(200, 200, 100, 0, Math.PI * 2, false);
         ctx.stroke();
     }
 }

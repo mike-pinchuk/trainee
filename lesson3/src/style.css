@@ -6,12 +6,9 @@ body {
   }
 
 .wrapper {
-    margin: ;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100%;
     min-width: 100%;
 }
-
-/*# sourceMappingURL=/src.a2b27638.css.map */

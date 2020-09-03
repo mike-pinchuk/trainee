@@ -1,18 +1,18 @@
-// import Shape from './shape';
-// import Circle from './circle';
 import Circle from './circle';
-// const {circle} = Circle;
+import Square from './square';
+import Triangle from './triangle';
+import './style.css';
 
 
 
-let circle = new Circle();
+const circle = new Circle();
 circle.draw();
-// let b = new Shape()
-// b.draw();
-// let c = new Circle()
-// console.log(typeof(b.circle));
+
+const square = new Square();
+square.draw();
+
+const triangle = new Triangle();
+triangle.draw(); 
 
 
-// let c = new Circle();
-// c.circle();
 
