@@ -5,20 +5,39 @@ const imageElement = document.getElementById('image')
 
 function myFetch(url) {
     return new Promise((resolve, reject) => {
-        try {
-            const xhr = new XMLHttpRequest();
-            xhr.open("GET", url);
 
-            xhr.responseType = 'blob';
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
 
-            xhr.onload = () => {
-                xhr.status === 200 ? resolve(xhr.response) : reject(`Loading error: ${xhr.statusText}`)
+        xhr.responseType = 'blob';
+        xhr.onload = () => {
+            if (xhr.status >= 400) {
+                reject(new Error(`Error ${xhr.status}: ${xhr.statusText}`))
+            } else {
+                const response = {
+                    data: xhr.response,
+                    json() {
+                        return new Promise((resolve, reject) => {
+                            const reader = new FileReader()
+
+                            reader.onload = () => {
+                                resolve(JSON.parse(reader.result))
+                            }
+
+                            reader.readAsText(this.data)
+                        })
+
+                    },
+                    blob() {
+                        return Promise.resolve(this.data)
+                    }
+                }
+                resolve(response)
             }
-            xhr.onerror = () => reject('Network error')
-
-            xhr.send()
         }
-        catch (err) { reject(err.message) }
+
+        xhr.onerror = () => reject('Network error')
+        xhr.send()
     })
 }
 
@@ -26,17 +45,16 @@ function myFetch(url) {
 myFetch(IMAGE_API_URL)
     .then(response => {
         return response.blob();
-    }).then((blob) => {
-        let reader = new FileReader();
-        reader.readAsDataURL(blob);
+    }).then((result) => {
+        const reader = new FileReader();
 
         reader.onload = () => {
-            console.log(reader.result)
+            insertImage(reader.result)
         }
-    })
+        reader.readAsDataURL(result);
+        return result
+    }).catch(e => console.log(`Error: ${e}`))
 
 function insertImage(src) {
     imageElement.src = src
 }
-
-// insertImage(myFetch)
