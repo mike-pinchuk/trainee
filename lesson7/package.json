@@ -8,7 +8,7 @@
     "dev": "webpack --mode development --watch",
     "build": "webpack --mode production",
     "format": "prettier --write \"*{.html,.css,.js}\"",
-    "lint:css": "eslint --fix --ext .js ."
+    "lint:js": "eslint --fix --ext index.js"
   },
   "author": "Mike P.",
   "license": "ISC",
