@@ -5,17 +5,22 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
-    "dev":"webpack --mode development --watch",
-    "build":"webpack --mode production"
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production",
+    "format": "prettier --write \"*{.html,.css,.js}\"",
+    "lint:css": "eslint --fix --ext .js ."
   },
   "author": "Mike P.",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
     "css-loader": "^4.3.0",
+    "eslint": "^7.9.0",
     "html-webpack-plugin": "^4.5.0",
     "postcss-loader": "^4.0.2",
+    "prettier": "^2.1.2",
     "style-loader": "^1.2.1",
+    "stylelint": "^13.7.1",
     "ts-loader": "^8.0.4",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",

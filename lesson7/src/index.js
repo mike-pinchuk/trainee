@@ -1,3 +1,5 @@
+import './styles/style.css';
+
 const input = document.getElementById('search');
 const button = document.getElementById('search_button');
 const view = document.querySelector('.view');
@@ -15,7 +17,7 @@ const viewResult = (api, film) => {
 
    fetch(`${api}${film}`).then(response => {
       return response.json()
-   }).then(data => {
+   }).then(data => { 
 
       for (let i = 0; i < data.length; i++) {
          const box = document.createElement('div');
@@ -30,3 +32,4 @@ const cleanView = () => {
    view.textContent = null;
 }
 
+console.log('hh')
