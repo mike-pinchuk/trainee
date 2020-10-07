@@ -1,5 +1,5 @@
 {
-  "name": "lesson7",
+  "name": "lesson8",
   "version": "1.0.0",
   "description": "My home task",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --mode development --open --hot",
     "dev": "webpack --mode development --watch",
     "build": "webpack --mode production",
-    "format": "prettier --write \"*{.html,.css,.js}\"",
+    "format": "prettier --write \"*{.html,.css,.js}\" .",
     "lint:js": "eslint --fix --ext index.js"
   },
   "author": "Mike P.",
