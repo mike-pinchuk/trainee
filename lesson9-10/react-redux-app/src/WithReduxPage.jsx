@@ -1,12 +1,12 @@
 import React from "react";
 import { createStore } from "redux";
-import rootReducer from "./redux/rootReducer";
-import { load } from "./redux/actions";
+import rootReducer from "./store/rootReducer";
+import load from "./store/actions";
 
 function WithReduxPage() {
   // const [name, setNames] = useState([]);
 
-  const store = createStore(rootReducer);
+  // const store = createStore(rootReducer);
 
   return (
     <div className="main">
@@ -14,7 +14,7 @@ function WithReduxPage() {
       <button onClick={store.dispatch(load())} type="button">
         Click on me!
       </button>
-      <div className="result">{store}</div>
+  <div className="result">{store.getState().value}</div>
     </div>
   );
 }

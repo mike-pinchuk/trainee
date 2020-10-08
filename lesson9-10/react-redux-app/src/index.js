@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import './index.css';
 import App from './App.jsx';
+import store from './store/store'
 // import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-    <App />,
+      <App store={store} />,
   document.getElementById('root')
 );
 
