@@ -2,6 +2,8 @@ import React from "react";
 import { createStore } from "redux";
 import rootReducer from "./store/rootReducer";
 import load from "./store/actions";
+import store from './store/store'
+import {getResult} from './store/mapDispatchToProps'
 
 function WithReduxPage() {
   // const [name, setNames] = useState([]);
@@ -11,10 +13,10 @@ function WithReduxPage() {
   return (
     <div className="main">
       <h1>GitHub users (With Redux technologie)</h1>
-      <button onClick={store.dispatch(load())} type="button">
+      <button onClick={getResult} type="button">
         Click on me!
       </button>
-  <div className="result">{store.getState().value}</div>
+  <div className="result"></div>
     </div>
   );
 }

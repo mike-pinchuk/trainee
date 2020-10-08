@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 // import './index.css';
 import App from './App.jsx';
 import store from './store/store'
+import {Provider} from 'react-redux'
+import COMPONENT_W from './wrappedComponent.js';
 // import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-      <App store={store} />,
+  <Provider store={store}>
+      <COMPONENT_W />
+  </Provider>
+     ,
   document.getElementById('root')
 );
 
