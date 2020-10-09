@@ -1,8 +1,11 @@
 import React from "react";
+import { Provider } from "react-redux";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
+import store from "./store/store";
 import WithoutReduxPage from "./WithoutReduxPage";
-import WithReduxPage from "./WithReduxPage";
+// import WithReduxPage from "./WithReduxPage";
+import WithReduxPage1 from "./store/wrappedWithReduxPage";
 
 function App() {
   return (
@@ -20,7 +23,9 @@ function App() {
         </nav>
         <Switch>
           <Route path="/redux">
-            <WithReduxPage />
+            <Provider store={store}>
+              <WithReduxPage1 />
+            </Provider>
           </Route>
           <Route path="/">
             <WithoutReduxPage />

@@ -1,22 +1,40 @@
 import React from "react";
-import { createStore } from "redux";
-import rootReducer from "./store/rootReducer";
-import load from "./store/actions";
+import rootReducer from './store/rootReducer'
 import store from './store/store'
-import {getResult} from './store/mapDispatchToProps'
+import {increment, decrement} from './store/actions'
+// import { useState } from "react";
 
 function WithReduxPage() {
-  // const [name, setNames] = useState([]);
+    // let state = 0;
 
-  // const store = createStore(rootReducer);
+store.subscribe(() => {
+    const state = store.getState()
+    console.log(state)
+})
+
+// store.dispatch(decrement())
+
+//   const [result, setResult] = useState(0);
+
+//   function plus() {
+//     setResult(result + 1);
+//   }
+
+//   function minus() {
+//     setResult(result - 1);
+//   }
 
   return (
-    <div className="main">
-      <h1>GitHub users (With Redux technologie)</h1>
-      <button onClick={getResult} type="button">
-        Click on me!
+    <div>
+      <h1>WORK!</h1>
+      <button type="button" onClick={store.dispatch(decrement())}>
+        Plus
       </button>
-  <div className="result"></div>
+      <button type="button" >
+        Minus
+      </button>
+      <br />
+      <span>{store.getState()}</span>
     </div>
   );
 }

@@ -1,1 +1,3 @@
-export const CLICK = 'CLICK'; 
+export const INCREMENT = 'INCREMENT'
+export const DECREMENT = 'DECREMENT'
+export const STATE = 'STATE'

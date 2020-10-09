@@ -1,10 +1,13 @@
-import {CLICK} from './types'
+import { INCREMENT, DECREMENT } from "./types";
 
-function load(value) {
-    return {
-        type: CLICK,
-        value: value
-    }
+export function increment() {
+  return {
+    type: INCREMENT,
+  };
 }
 
-export default load;
+export function decrement() {
+  return {
+    type: DECREMENT,
+  };
+}
