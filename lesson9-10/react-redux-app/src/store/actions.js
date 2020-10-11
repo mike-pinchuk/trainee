@@ -1,13 +1,8 @@
-import { INCREMENT, DECREMENT } from "./types";
+import { LOADING } from "./types";
 
-export function increment() {
+export function loading(newLoad) {
   return {
-    type: INCREMENT,
-  };
-}
-
-export function decrement() {
-  return {
-    type: DECREMENT,
+    type: LOADING,
+    payload: newLoad,
   };
 }

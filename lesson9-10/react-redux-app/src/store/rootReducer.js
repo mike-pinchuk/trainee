@@ -1,13 +1,17 @@
-import { INCREMENT, DECREMENT } from "./types";
+import { LOADING } from "./types";
 
-function rootReducer(state = 0, action) {
-  if (action.type === INCREMENT) {
-    return state + 1;
-  } else if (action.type === DECREMENT) {
-    return state - 1;
+const initialState = {
+  value: null,
+  disabled: false,
+};
+
+function rootReducer(state = initialState, action) {
+  switch (action.type) {
+    case LOADING:
+      return { ...state, value: action.payload };
+    default:
+      return state;
   }
-
-  return state;
 }
 
 export default rootReducer;

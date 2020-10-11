@@ -4,8 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import store from "./store/store";
 import WithoutReduxPage from "./WithoutReduxPage";
-// import WithReduxPage from "./WithReduxPage";
-import WithReduxPage1 from "./store/wrappedWithReduxPage";
+import WithReduxPage from "./store/wrappedWithReduxPage";
 
 function App() {
   return (
@@ -24,7 +23,7 @@ function App() {
         <Switch>
           <Route path="/redux">
             <Provider store={store}>
-              <WithReduxPage1 />
+              <WithReduxPage />
             </Provider>
           </Route>
           <Route path="/">

@@ -1,3 +1,1 @@
-export const INCREMENT = 'INCREMENT'
-export const DECREMENT = 'DECREMENT'
-export const STATE = 'STATE'
+export const LOADING = 'LOADING'

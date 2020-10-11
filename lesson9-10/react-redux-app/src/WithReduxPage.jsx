@@ -1,40 +1,47 @@
 import React from "react";
-import rootReducer from './store/rootReducer'
-import store from './store/store'
-import {increment, decrement} from './store/actions'
-// import { useState } from "react";
+import store from "./store/store";
+import { LOADING } from "./store/types";
 
 function WithReduxPage() {
-    // let state = 0;
-
-store.subscribe(() => {
-    const state = store.getState()
-    console.log(state)
-})
-
-// store.dispatch(decrement())
-
-//   const [result, setResult] = useState(0);
-
-//   function plus() {
-//     setResult(result + 1);
-//   }
-
-//   function minus() {
-//     setResult(result - 1);
-//   }
+  function newLoad() {
+    let names = [];
+    return fetch("https://api.github.com/users")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        names.push(data);
+        store.dispatch({
+          type: LOADING,
+          payload: names.map((e) => {
+            return e.map((item, id) => {
+              return (
+                <div key={id} className="card">
+                  <h3>
+                    Number of card <span>{item.id}</span>
+                  </h3>
+                  <img
+                    src={`https://avatars0.githubusercontent.com/u/${item.id}?v=4`}
+                    alt="avatar"
+                  />
+                  <p>Login: {item.login}</p>
+                  <p>
+                    <a href={item.html_url}>Personal GitHub page</a>
+                  </p>
+                </div>
+              );
+            });
+          }),
+        });
+      });
+  }
 
   return (
-    <div>
-      <h1>WORK!</h1>
-      <button type="button" onClick={store.dispatch(decrement())}>
-        Plus
+    <div className="main">
+      <button type="button" onClick={newLoad}>
+        Loading
       </button>
-      <button type="button" >
-        Minus
-      </button>
-      <br />
-      <span>{store.getState()}</span>
+      <div className="result">{store.getState().value}</div>
     </div>
   );
 }

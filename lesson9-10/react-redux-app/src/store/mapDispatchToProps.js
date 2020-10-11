@@ -1,21 +1,15 @@
-import {bindActionCreators} from 'redux'
-import {increment, decrement} from './actions'
-import COMPONENT from '../WithReduxPage'
+import { bindActionCreators } from "redux";
+import { loading } from "./actions";
+import COMPONENT from "../WithReduxPage";
 
-function mapDispatchToProps (component) {
-    if(COMPONENT) {
-        return function (dispatch) {
-            return {
-                change_plus: bindActionCreators(increment, dispatch),
-                change_minus: bindActionCreators(decrement, dispatch)
-            }
-        }      
-    // } else if (decrement) {
-    //     return {
-            
-    //     }
-    }
-    
+function mapDispatchToProps(component) {
+  if (COMPONENT) {
+    return function (dispatch) {
+      return {
+        loading: bindActionCreators(loading, dispatch),
+      };
+    };
+  }
 }
 
-export default mapDispatchToProps
+export default mapDispatchToProps;
