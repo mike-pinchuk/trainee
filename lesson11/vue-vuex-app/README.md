@@ -1,4 +1,4 @@
-# home-task-vue
+# vue-vuex-app
 
 ## Project setup
 ```
